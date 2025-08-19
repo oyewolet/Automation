@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Home Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #2b2b3c, #1a3851);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 50px;
+      padding-right: 65px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      width: 300px;
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+    .login-container button {
+      width: 50%;
+      padding: 12px;
+      margin-left: 25%;
+      background-color: #2196f3;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-container .error {
+      color: #f44336;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Dashboard</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+    <div class="error" id="errorMsg">Invalid credentials</div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const errorDiv = document.getElementById("errorMsg");
+
+      fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `username=${user}&password=${pass}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem("authenticated", "true");
+          window.location.href = "/index.html";
+        } else {
+          errorDiv.style.display = "block";
+        }
+      });
+    }
+
+    if (localStorage.getItem("authenticated") === "true") {
+      window.location.href = "/index.html";
+    }
+  </script>
+</body>
+</html>

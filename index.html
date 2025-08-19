@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Home Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/imgs copy.css">
+    <link rel="stylesheet" href="styles/table copy.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="heads"><a href="new.html" class="topbutton"><p class="header-p">Apartment Summary</p></a></div>
+
+      <div class="heads"><a href="index2.html" class="topbutton"><p class="header-p">Water Monitoring</p></a></div>
+
+      <div class="heads"><a href="index3.html"><p class="header-p">Energy Monitoring</p></a></div>
+      <div><p></p></div>
+    </div>
+         
+
+    <div class="main-grid">
+      <div class="left-div">
+        <div class="first-row">
+
+          <div class="tt">
+            <div class="a">Energy consumed in the period</div>
+            <div class="b">155 kw</div>
+            <div class="c"></div>
+          </div>
+
+
+          <div class="tt">
+            <div class="a">Water consumed in the period</div>
+            <div class="b">128 lt</div>
+            <div class="c"></div>
+          </div>
+          </div>
+
+
+        <div class="second-row">
+          <div class="gauge-container">
+            <div class="gauge" id="gauge">
+              <div class="needle" id="needle"></div>
+              <div class="center"></div>
+            </div>
+            <div id="temperatureText">--&#176C</div>
+          </div>
+
+           <div class="tt">
+            <div class="a">Living room humidity</div>
+            <div class="b"><img id="temp_gauge" src="temp.png" class="second-row-imgg"></div>
+            <div class="c"><p>State: 45</p></div>
+          </div>
+
+          
+
+          
+          
+
+          <div class="tt">
+            <div class="a">Fan</div>
+            <div class="b"><img id="fan" src="fan-off.png"  alt="Image fan" onclick="togglefan()" class="img33"/></div>
+            <div class="c"><p>State: <span id="22s">OFF</span></p></div>
+          </div>
+
+        </div>
+
+        <div class="third-row">
+
+          <div class="tt">
+            <div class="a">Sink leak State</div>
+            <div class="b"><img src="dry.png" alt="not leaking"  class="img33"></div>
+            <div class="c">State: Dry</div>
+            
+          </div>
+
+          
+
+          <div class="tt">
+            <div class="a">Bathroom leak State</div>
+            <div class="b"><img src="leaking.png" alt="leaking"  class="img33"></div>
+            <div class="c">State: Leaking</div>
+            
+          </div>
+
+
+          
+
+          <div class="tt">
+            <div class="a">Dishwasher leak State</div>
+            <div class="b"><img src="dry.png" alt="not leaking"  class="img33"></div>
+            <div class="c">State: Dry</div>
+            
+          </div>
+
+        </div>
+
+        <div class="table-grid">
+        <div class="C">
+                      <p >Leak Logs</p>
+                    <table>
+                          <thead>
+                              <tr><th>Sink</th><th>Bathroom</th><th>Dishwasher</th><th>State</th><th>Date and Time</th></tr>
+                          </thead>
+                          <tbody>
+                              <tr><td>Dry</td><td>Dry</td><td class="leaking">Leaking</td><td>⚠</td><td>01/03/2024 15:24:19</td></tr>
+                              <tr><td>Dry</td><td>Dry</td><td class="leaking">Leaking</td><td>⚠</td><td>01/03/2024 15:23:37</td></tr>
+                              <tr><td>Dry</td><td>Dry</td><td>Dry</td><td>✅</td><td>01/03/2024 18:20:25</td></tr>
+                          </tbody>
+                    </table>
+                <div class="last">...</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- right section -->
+      <div class="right-div">
+        <div class="t1-row">
+
+          <div class="tt">
+            
+              <div class="a">Office Light</div>
+
+              <div class="b" > <img id="imageLamp" src="light_bulb_off.png"  alt="Image Lamp" onclick="toggleBulb()" class="img33"></div>
+
+              <div class="c"><p class="k">State: <span id="2s">OFF</span> </p>
+              
+              </div>
+            </div>
+
+
+
+          <div class="tt">
+            <div class="a">Living room Light</div>
+            <div class="b"><img id="Lamp1" src="light_bulb_off.png"  alt="Image Lamp" onclick="toggleBulb1()" class="img33"/></div>
+            <div class="c"><p>State: <span id="3s">OFF</span></p></div>
+          </div>
+
+          <div class="tt">
+            <div class="a">Bedroom Light</div>
+            <div class="b"><img id="Lamp2" src="light_bulb_off.png"  alt="Image Lamp" onclick="toggleBulb2()" class="img33"/></div>
+            <div class="c"><p>State: <span id="4s">OFF</span></p></div>
+          </div>
+
+          
+        </div>
+
+
+
+        <div class="t2-row">
+
+          <div class="tt">
+            <div class="a">Entrance camera</div>
+            <div class="b"> <img id="camera" src="camera-close.png" alt="camera" onclick="togglecamera()" class="imgg-t2"/></div>
+            <div class="c"><p>State: <span id="5s">OFF</span></p></div>
+          </div>
+          
+           
+           <div class="tt">
+            <div class="a">Corridor camera</div>
+            <div class="b"><img id="camera1" src="camera-close.png" alt="camera" onclick="togglecamera1()" class="imgg-t2"/></div>
+            <div class="c"><p>State: <span id="6s">OFF</span></p></div>
+          </div>
+          
+
+
+          
+          <div class="tt">
+            <div class="a">Car park camera</div>
+            <div class="b"> <img id="camera2" src="camera-close.png" alt="camera" onclick="togglecamera2()" class="imgg-t2"/></div>
+            <div class="c"><p>State: <span id="7s">OFF</span></p></div>
+          </div>
+          
+           
+           <div class="tt">
+            <div class="a">Garden camera</div>
+            <div class="b"><img id="camera3" src="camera-close.png" alt="camera" onclick="togglecamera3()" class="imgg-t2"/></div>
+            <div class="c"><p>State: <span id="8s">OFF</span></p></div>
+          </div>
+
+        </div>
+
+        <div class="t3-row">
+
+          <div class="ttt">
+            <div class="aa">Activate Alarm</div>
+            <div class="bb"><button class="t3-button" id="armed">Armed</button></div>
+          </div>
+         
+
+          
+
+          <div class="tt">
+            <div class="a">Back door</div>
+            <div class="b"><img id="backDoor" src="open_lock.png" alt="Back Door" onclick="toggleBackDoor()" class="t3-imgg"/></div>
+            <div class="c"><P>State: <span id="9s">OPEN</span></P></div>
+          </div>
+
+          
+          
+
+          <div class="tt">
+            <div class="a">Entrance Door</div>
+            <div class="b"><img id="frontDoor" src="open_lock.png" alt="Front Door" onclick="toggleFrontDoor()"  class="t3-imgg"/></div>
+            <div class="c"><p>State: <span id="10s">OPEN</span></p></div>
+          </div>
+        </div>
+
+
+
+        <div class="table-grid">
+          <div class="D">
+              <p >Access Logs</p>
+         <table>
+            <thead>
+                <tr><th>Front Door</th><th>Back Door</th><th>State</th><th>Date and Time</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Closed</td><td>Closed</td><td>✅</td><td>01/03/2024 15:24:19</td></tr>
+                <tr><td>Closed</td><td>Closed</td><td>✅</td><td>01/03/2024 15:23:37</td></tr>
+                <tr><td class="open">Open</td><td>Closed</td><td>⚠</td><td>01/03/2024 18:20:25</td></tr>
+            </tbody>
+        </table>
+        <div class="last">...</div>
+         
+        
+        </div>
+        </div>
+
+        
+      </div>
+      <a  href="#" id="back">Back to Top</a>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
